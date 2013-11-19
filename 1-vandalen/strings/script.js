@@ -4,16 +4,41 @@ window.onload = function(){
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.		
+		// Plats för förändring.
+		var letterstring = "";
+		
+		for(var i = 0; i<str.length; i += 1){
+		    var lowercaseletter = str.charAt(i);
+		    var uppercaseletter = str.charAt(i);
+		    
+		    
+		    uppercaseletter = uppercaseletter == str.charAt(i).toUpperCase();
+		    lowercaseletter = lowercaseletter == str.charAt(i).toLowerCase();
+		    
+		    if(str.charAt(i) == "a" || str.charAt(i) == "A"){
+		        letterstring += "#";
+		    }
+		    else{
+		    
+		    if(uppercaseletter === true){
+		        letterstring += str.charAt(i).toLowerCase();
+		    }
+		    
+		    
+		    if(lowercaseletter === true){
+		        letterstring += str.charAt(i).toUpperCase();
+		    }
+		}
+		}
+		// Om man inte skriver något i rutan eller skriver siffror så kastats ett undantag.
+		
+        if(!isNaN(str * 1)){
+            return "Var vänlig skriv in bokstäver!"
+        }
+		
 		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
-
-
-
-
-
-
+		
+		return letterstring;
 	};
 	// ------------------------------------------------------------------------------
 
