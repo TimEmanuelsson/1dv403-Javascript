@@ -4,13 +4,25 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-		
-
-
-			// Din kod här.
-
-
-
+	
+        var day = new Date(date+"T23:59:59");
+        var toDaysDate = new Date();
+        
+        var mili = day.getTime();
+        
+        day.setFullYear(toDaysDate.getFullYear());
+        
+        var total = mili - toDaysDate;
+        
+        if(total < 0){
+            day.setFullYear(toDaysDate.getFullYear() + 1);
+        }
+        
+        var change = 86400000;
+        
+        var result = Math.floor((day.getTime() - toDaysDate.getTime()) / change);
+        
+        return result;
 
 	};
 	// ------------------------------------------------------------------------------
