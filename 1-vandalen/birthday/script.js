@@ -4,17 +4,23 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
-	
+	    
+	    var datearray = date.split("-");
+	    
+	    if(isNaN(datearray[0]) || isNaN(datearray[1]) || isNaN(datearray[2])){
+	    throw new Error("Du måste ju fylla i när du fyller år din dumme jävel!");
+	    }
+
         var day = new Date(date+"T23:59:59");
         var toDaysDate = new Date();
         
-        var mili = day.getTime();
+        if(day.getTime() > toDaysDate.getTime()){
+           throw new Error("Du kan ju inte vara född i framtiden din dumme jävel!");
+        }
         
         day.setFullYear(toDaysDate.getFullYear());
-        
-        var total = mili - toDaysDate;
-        
-        if(total < 0){
+
+        if(day.getTime() < toDaysDate.getTime()){
             day.setFullYear(toDaysDate.getFullYear() + 1);
         }
         
