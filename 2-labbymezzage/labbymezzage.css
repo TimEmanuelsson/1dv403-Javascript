@@ -1,0 +1,39 @@
+#ram {
+ background-color:green;
+ width:700px;
+ margin-left:550px;
+ padding-bottom:50px;
+}
+
+#textarea {
+    width:570px;
+    height:200px;
+    margin:20px 0 0 10px;
+    resize:none;
+}
+
+#textram {
+    background-color:white;
+    width:600px;
+    margin:0 0 0 50px;
+}
+
+h1 {
+    margin:0 0 0 230px;
+    padding:15px;
+}
+
+#knapp {
+    margin-left:530px;
+}
+
+#pp {
+    margin:0 0 0 450px;
+    padding-top:20px;
+}
+
+.textmessage{
+    border-style:solid;
+    border-width:1px;
+    margin-bottom:10px;
+}
