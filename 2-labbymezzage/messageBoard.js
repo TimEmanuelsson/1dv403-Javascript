@@ -43,26 +43,27 @@ var MessageBoard = {
         
         //Clera upp alla meddelanden som ligger i divtwo.
         document.querySelector("#divtwo").innerHTML = "";
-        
+
         //Räknar upp antal meddelanden i arrayen.
         for(var i = 0; i < MessageBoard.messages.length; i+=1){
-            document.getElementById("pp").innerHTML = "";
-            MessageBoard.renderMessage(i);
             
-        }
+            MessageBoard.renderMessage(i);
+            }
         
+        //Rensar antal meddelanden.
+        document.getElementById("pp").innerHTML = "";
+        
+        //Räknar antal meddelanden.(antal arrayer).
+        var number = MessageBoard.messages.length;
+        
+         //Skriver ut antal meddelanden.
+        var pp = document.getElementById("pp");
+        var text = document.createTextNode("Antal meddelande: "+number);
+        pp.appendChild(text);
        
         
     },
     renderMessage: function(messageID){
-        
-        
-        //Räknar antal meddelanden.(antal arrayer).
-        var number = 0;
-        
-        for(var i = 0; i < MessageBoard.messages.length; i+=1){
-              number +=1;
-        }
         
         //Skapar en ny div.
         var textmessage = document.createElement("div");
@@ -88,13 +89,7 @@ var MessageBoard = {
         
         //Skriver ut varje array med text i p.
         p.innerHTML = MessageBoard.messages[messageID].getHTMLText();
-        
-        //Skriver ut antal meddelanden.
-        var pp = document.getElementById("pp");
-        var text = document.createTextNode("Antal meddelande: "+number);
-        pp.appendChild(text);
 
-    
           //Skapar img tag och lägger in bild.
           var img = document.createElement("img");
           img.setAttribute("src", "delete1.png");
