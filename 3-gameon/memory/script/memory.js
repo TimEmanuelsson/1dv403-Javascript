@@ -4,6 +4,8 @@ var Memory = {
     
     cols: 4,
     rows: 4,
+    trys: 0,
+    totaltrys: 0,
     
     picsave: [],
     random: [],
@@ -14,7 +16,7 @@ var Memory = {
     
     Memory.tablesize();
     },
-    tablesize: function(){
+    tablesize: function(){      
         var cellid = 0;
         var div = document.getElementById("memory");
         var table = document.createElement("table");
@@ -35,23 +37,22 @@ var Memory = {
         }
     },
     creattd: function(cellid){
-        
         var td = document.createElement("td");
                     var img0 = document.createElement("img");
                     var a = document.createElement("a");
+                    a.setAttribute("href", "#");
                     
                     img0.setAttribute("src", "../pics/0.png");
+                    
                     td.appendChild(a);
                     a.appendChild(img0);
                     
                         a.onclick = function(){
                             if(img0.getAttribute("src") == "../pics/0.png"){
-                                Memory.flip(cellid);
+                                Memory.totaltrys +=1;
+                                Memory.flip(cellid);   
                             }
                         };
-                             
-                    
-                    
                     img0.setAttribute("id", cellid);
         return td;
     },
@@ -72,10 +73,21 @@ var Memory = {
     },
     flip: function(cellid){
         Memory.changepic(cellid);
+        var size = Memory.cols * Memory.rows / 2;
         if(Memory.picsave.length == 2){
             if(Memory.random[Memory.picsave[0]] == Memory.random[Memory.picsave[1]]){
                 setTimeout(function() {
-                alert("Rätt!");    
+                Memory.trys +=1;
+                if(size == Memory.trys){
+                    var totaltryss = Memory.totaltrys / 2;
+                        var tryss = document.getElementById("hej");
+                        var textt = document.createTextNode("GRATTIS DU HAR VUNNIT");
+                        tryss.appendChild(textt);
+                        
+                        var trys = document.getElementById("hej2");
+                        var text = document.createTextNode("Antal försök: "+totaltryss);
+                        trys.appendChild(text);
+                }
                 }, 500);
                 
             }
