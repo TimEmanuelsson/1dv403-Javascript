@@ -50,7 +50,7 @@ var Memory = {
                         a.onclick = function(){
                             if(img0.getAttribute("src") == "../pics/0.png"){
                                 Memory.totaltrys +=1;
-                                Memory.flip(cellid);   
+                                Memory.flip(cellid);
                             }
                         };
                     img0.setAttribute("id", cellid);
@@ -61,7 +61,6 @@ var Memory = {
         if(img.getAttribute("src") == "../pics/0.png"){
             img.setAttribute("src", "../pics/" +Memory.random[cellid] +".png");
             Memory.picsave.push(cellid);
-                    
         }
         else{
             setTimeout(function() {

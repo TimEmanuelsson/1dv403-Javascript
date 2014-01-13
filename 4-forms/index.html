@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang ="sv">
+<html>
+  <head>
+   <meta charset="UTF-8" />
+    <title>Validering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<form id="form" class="form-horizontal" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbintro/form.php" method="post">
+<fieldset>
+<!-- Form Name -->
+<legend id="legend">Fyll i din betalningsplan</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Förnamn">Förnamn</label>  
+  <div class="col-md-4">
+  <input id="Fornamn" name="Förnamn"  placeholder="Ange namn" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Efternamn">Efternamn</label>  
+  <div class="col-md-4">
+  <input id="Efternamn" name="Efternamn" type="text" placeholder="Ange efternamn" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Postnummer">Postnummer</label>  
+  <div class="col-md-4">
+  <input id="Postnummer" name="Postnummer" type="text" placeholder="Ange postnummer" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Epost">E-post</label>  
+  <div class="col-md-4">
+  <input id="Epost" name="Epost" type="text" placeholder="Ange e-post" class="form-control input-md" required="">
+    
+  </div>
+</div>
+<!-- Button Drop Down -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="buttondropdown">Prismodell</label>
+  <div class="col-md-4">
+    <div class="input-group">
+<fieldset class="form">
+      <select name="Rullgarding">
+   <option value="Low" selected>Låg</option>
+            <option value="Middle">Medel</option>              
+            <option value="High">Hög</option>
+ </select>
+</fieldset>
+      </div>
+    </div>
+  </div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Skicka</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
