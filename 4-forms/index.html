@@ -16,7 +16,7 @@
     <![endif]-->
   </head>
   <body>
-<form id="form" class="form-horizontal" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="post">
+<form id="form" name="forms" class="form-horizontal" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="post">
 <fieldset>
 <!-- Form Name -->
 <legend id="legend">Fyll i din betalningsplan</legend>
@@ -62,10 +62,10 @@
   <div class="col-md-4">
     <div class="input-group">
 <fieldset class="form">
-      <select name="Rullgarding">
-   <option value="Low" selected>Låg</option>
-            <option value="Middle">Medel</option>              
-            <option value="High">Hög</option>
+      <select id="rullgardin" name="Rullgarding">
+   <option value="Liten" selected>Liten</option>
+            <option value="Mellan">Mellan</option>              
+            <option value="Stor">Stor</option>
  </select>
 </fieldset>
       </div>
