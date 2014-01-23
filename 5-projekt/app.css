@@ -5,7 +5,7 @@ body{
 
 #main{
     width:100%;
-    height:860px;
+    height:890px;
     background-color:green;
 }
 
@@ -13,4 +13,61 @@ footer{
     width:100%;
     height:70px;
     background-color:black;
+}
+
+#knapp{
+	width:50px;
+	height:50px;
+	background-color:blue;
+	margin-left:10px;
+}
+
+#popup{
+	width:500px;
+	height:600px;
+	position:absolute;
+	top:150px;
+	left:545px;
+	background-color:#0000FF;
+}
+
+#top{
+	width:100%;
+	height:60px;
+	background-color:red;
+}
+
+#topright{
+	width:250px;
+	height:60px;
+	float:right;
+	padding-right:5px;
+	background-color:#FF80FF;
+}
+
+#topleft{
+	width:100px;
+	height:30px;
+	float:left;
+	margin:5px 0 0 5px;
+	background-color:red;
+}
+
+#mid{
+	width:100%;
+	height:500px;
+	background-color:#ff8000;
+}
+
+#bottom{
+	width:100%;
+	height:40px;
+	background-color:#ff80ff;
+}
+
+#avbryt{
+	width:35px;
+	height:30px;
+	background-color:#ffff00;
+	float:right;
 }
