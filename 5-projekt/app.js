@@ -13,6 +13,8 @@ var desktop = {
 				}
 				inside = true;
 				
+				var bajs = 0;
+				
 				var popup = document.createElement("div");
 				popup.setAttribute("id", "popup");
 				var main = document.getElementById("main");
