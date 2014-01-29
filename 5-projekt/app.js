@@ -12,7 +12,7 @@ var desktop = {
 					return false;
 				}
 				inside = true;
-				
+
 				var popup = document.createElement("div");
 				popup.setAttribute("id", "popup");
 				var main = document.getElementById("main");
@@ -38,13 +38,16 @@ var desktop = {
 				top.appendChild(topleft);
 				top.appendChild(topright);
 				
+				var p = document.createElement("p");
+				p.setAttribute("id", "ptagg")
 				var desktopname = document.createTextNode("Image Viewer");
 				
 				var buttonremove = document.createElement("button");
 				buttonremove.setAttribute("id", "avbryt");
 				buttonremove.appendChild(document.createTextNode("X"));
 				
-				topleft.appendChild(desktopname);
+				p.appendChild(desktopname);
+				topleft.appendChild(p);
 				topright.appendChild(buttonremove);
 				
 				buttonremove.onclick = function(){

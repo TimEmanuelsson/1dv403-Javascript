@@ -1,12 +1,12 @@
 body{
     height:100%;
-    background-color:white;
+    background-color:gray;
 }
 
 #main{
     width:100%;
     height:890px;
-    background-color:green;
+    background-color:gray;
 }
 
 footer{
@@ -18,7 +18,10 @@ footer{
 #knapp{
 	width:50px;
 	height:50px;
-	background-color:blue;
+	opacity: 0.6;
+	border-radius: 30px;
+	border:2px solid green;
+	background-color:white;
 	margin-left:10px;
 }
 
@@ -28,13 +31,17 @@ footer{
 	position:absolute;
 	top:150px;
 	left:545px;
-	background-color:#0000FF;
+	opacity: 0.8;
+	border: 2px solid green;
+	background-color:black;
+
 }
 
 #top{
 	width:100%;
 	height:60px;
-	background-color:red;
+	border-bottom: 1px solid white;
+	background-color:black;
 }
 
 #topright{
@@ -42,7 +49,7 @@ footer{
 	height:60px;
 	float:right;
 	padding-right:5px;
-	background-color:#FF80FF;
+	background-color:black;
 }
 
 #topleft{
@@ -50,24 +57,32 @@ footer{
 	height:30px;
 	float:left;
 	margin:5px 0 0 5px;
-	background-color:red;
+	background-color:black;
+}
+
+#ptagg{
+	color:white;
+	margin-top:1px;
 }
 
 #mid{
 	width:100%;
 	height:500px;
-	background-color:#ff8000;
+	background-color:black;
 }
 
 #bottom{
 	width:100%;
-	height:40px;
-	background-color:#ff80ff;
+	height:38px;
+	border-top: 1px solid white;
+	background-color:black;
 }
 
 #avbryt{
 	width:35px;
 	height:30px;
-	background-color:#ffff00;
+	background-color:gray;
+	border-radius: 20px;
+	margin:2px 0 0 0;
 	float:right;
 }
