@@ -50,6 +50,8 @@ var desktop = {
 				topleft.appendChild(p);
 				topright.appendChild(buttonremove);
 				
+				desktop.imageview();
+				
 				buttonremove.onclick = function(){
 					main.removeChild(document.querySelector("#popup"));
 					
@@ -64,7 +66,57 @@ var desktop = {
 	
 	imageview:function(){
 		
+		var url = "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/";
 		
+		new AjaxCon(url, function(data){
+			
+			if(data === "loading data"){
+				var img = document.createElement("img");
+				img.setAttribute("id", "loader");
+				img.setAttribute("src", "ajax-loader.gif");
+				
+				var bottom = document.getElementById("bottom");
+				bottom.appendChild(img);
+				
+			}
+			else{
+				var pic = JSON.parse(data);
+				
+				var maxheight = 0;
+				var maxwidth = 0;
+				
+				
+				
+				for(var i = 0; i < pic.length; i+=1){
+					if(pic[i].thumbWidth > maxwidth){
+						maxwidth = pic[i].thumbWidth;
+					}
+					if(pic[i].thumbHeight > maxheight){
+						maxheight = pic[i].thumbHeight;
+					}
+				}
+				
+				for(var i = 0; i < pic.length; i+=1){
+				var mid = document.getElementById("mid");
+				var div = document.createElement("div");
+				div.setAttribute("id", "ram");
+				var a = document.createElement("a");
+				var image = document.createElement("img");
+				mid.appendChild(div);
+				div.appendChild(a);
+				a.appendChild(image);
+				
+				a.setAttribute("href", pic[i].URL);
+				image.setAttribute("src", pic[i].thumbURL);
+				div.style.height = maxheight + 20 + "px";
+				div.style.width = maxwidth + 20 + "px";
+				a.style.height = maxheight + 20 + "px";
+				a.style.width = maxwidth + 20 + "px";
+			}
+			}
+			
+			
+		})
 		
 	}
 };
