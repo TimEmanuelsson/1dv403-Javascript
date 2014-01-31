@@ -8,15 +8,16 @@ var desktop = {
 		
 			button.onclick = function(){
 				
+				//kollar om sidan redan finns
 				if(inside === true){
 					return false;
 				}
 				inside = true;
 
+				//skapar popup fönstret
 				var popup = document.createElement("div");
 				popup.setAttribute("id", "popup");
-				var main = document.getElementById("main");
-				main.appendChild(popup);
+				document.body.appendChild(popup);
 				
 				var top = document.createElement("div");
 				top.setAttribute("id", "top");
@@ -50,10 +51,11 @@ var desktop = {
 				topleft.appendChild(p);
 				topright.appendChild(buttonremove);
 				
+				//Kör imageview funktionen
 				desktop.imageview();
 				
 				buttonremove.onclick = function(){
-					main.removeChild(document.querySelector("#popup"));
+					document.body.removeChild(document.querySelector("#popup"));
 					
 					inside = false;
 					
@@ -66,27 +68,34 @@ var desktop = {
 	
 	imageview:function(){
 		
+		//Var du hämtar datan ifrån
 		var url = "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/";
 		
+		//skapar ett nytt obejekt och skickar med url och datan från servern.
 		new AjaxCon(url, function(data){
 			
+			//Om datan laddar så visas ladd ikonen.
 			if(data === "loading data"){
+				var bottom = document.getElementById("bottom");
+
 				var img = document.createElement("img");
 				img.setAttribute("id", "loader");
 				img.setAttribute("src", "ajax-loader.gif");
 				
-				var bottom = document.getElementById("bottom");
 				bottom.appendChild(img);
-				
 			}
 			else{
+				//Dölj laddar knappen när hämtningen är färdig.
+				document.getElementById("loader").style.visibility='hidden';
+
+				//Parsa om datan som du hämtat ut.
 				var pic = JSON.parse(data);
 				
 				var maxheight = 0;
 				var maxwidth = 0;
 				
 				
-				
+				//Loopar igenom och kolla vilket som är max värderna på bilderna.
 				for(var i = 0; i < pic.length; i+=1){
 					if(pic[i].thumbWidth > maxwidth){
 						maxwidth = pic[i].thumbWidth;
@@ -96,22 +105,26 @@ var desktop = {
 					}
 				}
 				
+				//Skapar ramar och skriver ut bilderna.
 				for(var i = 0; i < pic.length; i+=1){
 				var mid = document.getElementById("mid");
-				var div = document.createElement("div");
-				div.setAttribute("id", "ram");
 				var a = document.createElement("a");
+				a.setAttribute("id", "atagg");
 				var image = document.createElement("img");
-				mid.appendChild(div);
-				div.appendChild(a);
+				mid.appendChild(a);
 				a.appendChild(image);
 				
 				a.setAttribute("href", pic[i].URL);
 				image.setAttribute("src", pic[i].thumbURL);
-				div.style.height = maxheight + 20 + "px";
-				div.style.width = maxwidth + 20 + "px";
-				a.style.height = maxheight + 20 + "px";
-				a.style.width = maxwidth + 20 + "px";
+				a.style.height = maxheight + 10 + "px";
+				a.style.width = maxwidth + 10 + "px";
+				a.style.lineHeight = maxheight -5 + "px";
+
+				//När du klickar på bilderna så ändras bodyn till bilden (bakgrunden).
+				a.onclick = function() {
+                    document.getElementsByTagName("body")[0].style.background = "url("+ this.href +")";
+                    return false;
+                }
 			}
 			}
 			

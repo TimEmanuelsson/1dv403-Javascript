@@ -9,6 +9,7 @@ function AjaxCon(url, callback) {
     
     var xhr = this.getXHR();
     
+    //Hämtar infomationen från servern och kolla så att det är ok och skickar en response.
     xhr.onreadystatechange = function() {
         if(xhr.readyState === READY_STATE_COMPLETE)
         {
@@ -30,7 +31,7 @@ function AjaxCon(url, callback) {
     xhr.send(null);
     callback("loading data");
 }
-
+//Skapar xhr eller ActiveXObejekt.
 AjaxCon.prototype.getXHR = function() {
     var xhr = null;
     try {
