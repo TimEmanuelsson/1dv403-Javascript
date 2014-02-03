@@ -9,7 +9,7 @@ function AjaxCon(url, callback) {
     
     var xhr = this.getXHR();
     
-    //Hämtar infomationen från servern och kolla så att det är ok och skickar en response.
+    //Hï¿½mtar infomationen frï¿½n servern och kolla sï¿½ att det ï¿½r ok och skickar en response.
     xhr.onreadystatechange = function() {
         if(xhr.readyState === READY_STATE_COMPLETE)
         {
@@ -19,15 +19,13 @@ function AjaxCon(url, callback) {
             }
             else
             {
-                console.log("Läsfel, status:"+xhr.status);
+                console.log("Lï¿½sfel, status:"+xhr.status);
             }
         }
     };
     
     xhr.open("get", url, true);
-    
-    //xhr.setRequestHeader('IF-Modified-Since', 'Mon, 01 Sep 2007 00:00:00 GMT');
-    
+
     xhr.send(null);
     callback("loading data");
 }

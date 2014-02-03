@@ -3,12 +3,10 @@ var Validation = {
 
     init:function(){
         
-        var button = document.querySelector("#singlebutton");
-        
         //regulara uttrycken
         var allowedName = /^[\ws*$åäöÅÄÖ][^0-9]/;
-        var allowedPostalNumber = /^[0-9]{5}$|^[0-9]{3}-[0-9]{2}$|^[0-9]{3}\s[0-9]{2}$|^SE\d{5}$|^SE\d{3}-\d{2}$|^SE\d{3}\s\d{2}$|^SE\s[0-9]{3}\s[0-9]{2}$|^SE\s[0-9]{3}-\d{2}$/;
-        var allowedEmail = /\S+@\S+\.\S+/;
+        var allowedPostalNumber = /^\d{5}$|^\d{3}-\d{2}$|^\d{3}\s\d{2}$|^SE\d{5}$|^SE\d{3}-\d{2}$|^SE\d{3}\s\d{2}$|^SE\s\d{3}\s\d{2}$|^SE\s\d{3}-\d{2}$/;
+        var allowedEmail = /([^.]|\s)\S+@([^.]|\s)\S+\.\S+/;
         
         //Hämta rutan
         var forname = document.querySelector("#Fornamn");
@@ -16,7 +14,7 @@ var Validation = {
         var epost = document.querySelector("#Epost");
         var zipcode = document.querySelector("#Postnummer");
         
-        //När man markera och klicka ut = onblur
+        //När man markera och klicka ut = onblur  
         forname.onblur = function(){
             
             //Hämta ut inmatningen
@@ -106,6 +104,7 @@ var Validation = {
             if(allowedPostalNumber.test(zipcodeinput)){
                 zipcode.style.background = "transparent";
                 zipcode.style.borderColor = "#66CD00";
+                zipcode.value = zipcode.value.replace(/[^\d]/g, '');
                 return true;
             }
             else{
@@ -117,9 +116,12 @@ var Validation = {
                 return false;
             }
         };
-
+		
+		var button = document.querySelector("#singlebutton");
+		button.setAttribute("type", "button");
+			
          button.onclick = function(){
-             
+             console.log("asdase");
              //Om alla onblur är true går det att klicka på skicka
              if(forname.onblur() && lastname.onblur() && epost.onblur() && zipcode.onblur()){
                  
@@ -257,13 +259,12 @@ var Validation = {
                  
                  
                 };
-         
                 buttonsend.onclick = function(){
                     //Hämta form och skicka.
                     var f = document.querySelector("form");
                     f.submit();
                 };
-                 
+               
              }
          };
          

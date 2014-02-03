@@ -39,6 +39,11 @@ var desktop = {
 				top.appendChild(topleft);
 				top.appendChild(topright);
 				
+				var bild = document.createElement("div");
+				bild.setAttribute("id", "bild");
+				
+				topleft.appendChild(bild);
+				
 				var p = document.createElement("p");
 				p.setAttribute("id", "ptagg")
 				var desktopname = document.createTextNode("Image Viewer");
@@ -107,25 +112,25 @@ var desktop = {
 				
 				//Skapar ramar och skriver ut bilderna.
 				for(var i = 0; i < pic.length; i+=1){
-				var mid = document.getElementById("mid");
-				var a = document.createElement("a");
-				a.setAttribute("id", "atagg");
-				var image = document.createElement("img");
-				mid.appendChild(a);
-				a.appendChild(image);
-				
-				a.setAttribute("href", pic[i].URL);
-				image.setAttribute("src", pic[i].thumbURL);
-				a.style.height = maxheight + 10 + "px";
-				a.style.width = maxwidth + 10 + "px";
-				a.style.lineHeight = maxheight -5 + "px";
-
-				//När du klickar på bilderna så ändras bodyn till bilden (bakgrunden).
-				a.onclick = function() {
-                    document.getElementsByTagName("body")[0].style.background = "url("+ this.href +")";
-                    return false;
-                }
-			}
+					var mid = document.getElementById("mid");
+					var a = document.createElement("a");
+					a.setAttribute("id", "atagg");
+					var image = document.createElement("img");
+					mid.appendChild(a);
+					a.appendChild(image);
+					
+					a.setAttribute("href", pic[i].URL);
+					image.setAttribute("src", pic[i].thumbURL);
+					a.style.height = maxheight + 10 + "px";
+					a.style.width = maxwidth + 10 + "px";
+					a.style.lineHeight = maxheight -5 + "px";
+	
+					//När du klickar på bilderna så ändras bodyn till bilden (bakgrunden).
+					a.onclick = function() {
+	                    document.getElementsByTagName("body")[0].style.background = "url("+ this.href +")";
+	                    return false;
+	                }
+				}
 			}
 			
 			
